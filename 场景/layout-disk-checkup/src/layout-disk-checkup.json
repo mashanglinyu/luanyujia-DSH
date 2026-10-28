@@ -1,0 +1,54 @@
+{
+  "id": "layout_disk_checkup",
+  "name": "磁盘体检台（Windows）",
+  "description": "左边磁盘分区卡片、右上大户排行、右下清理台账，中间 AI。装在工作台里，磁盘满了不用另开工具。",
+  "layout": "grid",
+  "theme": "dark",
+  "panels": [
+    {
+      "id": "pc-drives",
+      "title": "磁盘分区",
+      "type": "pc-drives",
+      "col": 1,
+      "row": 1,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "pc-toplarge",
+      "title": "大户排行",
+      "type": "pc-toplarge",
+      "col": 4,
+      "row": 1,
+      "w": 1,
+      "h": 2
+    },
+    {
+      "id": "pc-junk",
+      "title": "可清理体检",
+      "type": "pc-junk",
+      "col": 1,
+      "row": 3,
+      "w": 1,
+      "h": 1
+    },
+    {
+      "id": "pc-ledger",
+      "title": "清理台账",
+      "type": "pc-ledger",
+      "col": 1,
+      "row": 4,
+      "w": 1,
+      "h": 1
+    },
+    {
+      "id": "pc-ai",
+      "title": "AI",
+      "type": "harness",
+      "col": 2,
+      "row": 3,
+      "w": 3,
+      "h": 2
+    }
+  ]
+}

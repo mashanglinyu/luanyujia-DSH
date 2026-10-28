@@ -1,0 +1,29 @@
+{
+  "id": "layout_preview_ai",
+  "name": "大预览 + AI",
+  "description": "左边一个大预览窗口（图片 / PDF / 视频都能拖进来），右边一条窄的 AI 对话。最省心的通用工作台：看东西 + 问 AI。",
+  "layout": "grid",
+  "theme": "dark",
+  "panels": [
+    {
+      "id": "pv-view",
+      "title": "预览",
+      "sub": "把文件拖进来，或点右上角选文件",
+      "type": "view",
+      "col": 1,
+      "row": 1,
+      "w": 3,
+      "h": 4
+    },
+    {
+      "id": "pv-ai",
+      "title": "AI",
+      "sub": "面板右上角 → 选择会话",
+      "type": "harness",
+      "col": 4,
+      "row": 1,
+      "w": 1,
+      "h": 4
+    }
+  ]
+}

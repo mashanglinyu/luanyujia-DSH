@@ -1,0 +1,47 @@
+{
+  "id": "layout_dual_ai",
+  "name": "双 AI 下置",
+  "description": "上面一个大预览 + 一列文件，下面两个 AI 会话并排（比如「做」和「审」两个角色）。写东西 / 校对最顺。",
+  "layout": "grid",
+  "theme": "dark",
+  "panels": [
+    {
+      "id": "da-view",
+      "title": "预览",
+      "type": "view",
+      "col": 1,
+      "row": 1,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "id": "da-file",
+      "title": "文件",
+      "type": "file",
+      "col": 4,
+      "row": 1,
+      "w": 1,
+      "h": 3
+    },
+    {
+      "id": "da-ai1",
+      "title": "AI·做",
+      "sub": "选一个会话",
+      "type": "harness",
+      "col": 1,
+      "row": 4,
+      "w": 2,
+      "h": 2
+    },
+    {
+      "id": "da-ai2",
+      "title": "AI·审",
+      "sub": "选另一个会话",
+      "type": "harness",
+      "col": 3,
+      "row": 4,
+      "w": 2,
+      "h": 2
+    }
+  ]
+}

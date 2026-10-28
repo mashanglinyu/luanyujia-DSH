@@ -1,0 +1,43 @@
+{
+  "id": "layout-dual-ai",
+  "title": "双 AI 下置",
+  "category": "场景",
+  "version": "0.1.0",
+  "summary": "上面一个大预览 + 一列文件，下面两个 AI 会话并排（比如「做」和「审」两个角色）。写东西 / 校对最顺。",
+  "author": "淋雨家",
+  "license": "MIT",
+  "compat": {
+    "dsh": ">=0.2.1-rc.2",
+    "shell": "需要外壳注册对应 panel type；`reserved` / `harness` / `view` / `file` / `flow` / `wb-cards` 是通用类型。",
+    "os": "any"
+  },
+  "install": "把 `src/<slug>.json` 复制到 `外壳\\scenarios\\`，重启工作台（或点顶栏 ⟳）；面板里的 AI 会话要自己选一次。",
+  "preview": {
+    "type": "jpg",
+    "file": "poster.jpg"
+  },
+  "updatedAt": "2026-10-28",
+  "meta": {
+    "scenes": [
+      {
+        "file": "src/layout-dual-ai.json",
+        "panels": 4,
+        "renderers": [
+          "view",
+          "file",
+          "harness"
+        ]
+      }
+    ],
+    "requires": [
+      "renderer:view",
+      "renderer:file",
+      "renderer:harness"
+    ],
+    "changes": [
+      "面板 id 别改（对应分区数据）",
+      "AI 面板要自己选一次会话（sessionId 已剔除）",
+      "复制到 外壳\\scenarios\\ 后重启/刷新面板生效"
+    ]
+  }
+}

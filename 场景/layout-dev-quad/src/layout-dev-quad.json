@@ -1,0 +1,49 @@
+{
+  "id": "layout_dev_quad",
+  "name": "四宫格开发台",
+  "description": "左上代码预览、右上一列文件树、左下留一个自定义位、右下 AI。程序开发 / 改脚本时最顺的摆法。",
+  "layout": "grid",
+  "theme": "dark",
+  "panels": [
+    {
+      "id": "dv-view",
+      "title": "代码预览",
+      "sub": "点文件树里的文件即预览",
+      "type": "view",
+      "col": 1,
+      "row": 1,
+      "w": 3,
+      "h": 2
+    },
+    {
+      "id": "dv-file",
+      "title": "文件",
+      "sub": "默认目录在面板里改",
+      "type": "file",
+      "col": 4,
+      "row": 1,
+      "w": 1,
+      "h": 2
+    },
+    {
+      "id": "dv-extra",
+      "title": "自定义位",
+      "sub": "换成你的第六个面板（终端 / 网页 / 清单都行）",
+      "type": "reserved",
+      "col": 1,
+      "row": 3,
+      "w": 1,
+      "h": 2
+    },
+    {
+      "id": "dv-ai",
+      "title": "AI",
+      "sub": "面板右上角 → 选择会话",
+      "type": "harness",
+      "col": 2,
+      "row": 3,
+      "w": 3,
+      "h": 2
+    }
+  ]
+}

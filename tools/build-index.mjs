@@ -42,6 +42,7 @@ for (const cat of CATS) {
       author: m.author || '',
       license: m.license || '',
       compat: m.compat || null,
+      meta: m.meta || null,
       install: m.install || '',
       preview: m.preview || null,
       updatedAt: m.updatedAt || '',

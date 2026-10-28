@@ -1,0 +1,45 @@
+{
+  "id": "layout-doc",
+  "title": "文档 + 文件 + 保留位 + AI",
+  "category": "场景",
+  "version": "0.1.0",
+  "summary": "左侧宽文档阅读区、右上文件、下方工具位、右下 AI。复盘 / 周报 / 长文阅读最舒服。",
+  "author": "淋雨家",
+  "license": "MIT",
+  "compat": {
+    "dsh": ">=0.2.1-rc.2",
+    "shell": "需要外壳注册对应 panel type；`reserved` / `harness` / `view` / `file` / `flow` / `wb-cards` 是通用类型。",
+    "os": "any"
+  },
+  "install": "把 `src/<slug>.json` 复制到 `外壳\\scenarios\\`，重启工作台（或点顶栏 ⟳）；面板里的 AI 会话要自己选一次。",
+  "preview": {
+    "type": "jpg",
+    "file": "poster.jpg"
+  },
+  "updatedAt": "2026-10-28",
+  "meta": {
+    "scenes": [
+      {
+        "file": "src/layout-doc.json",
+        "panels": 4,
+        "renderers": [
+          "view",
+          "file",
+          "reserved",
+          "harness"
+        ]
+      }
+    ],
+    "requires": [
+      "renderer:view",
+      "renderer:file",
+      "renderer:reserved",
+      "renderer:harness"
+    ],
+    "changes": [
+      "面板 id 别改（对应分区数据）",
+      "AI 面板要自己选一次会话（sessionId 已剔除）",
+      "复制到 外壳\\scenarios\\ 后重启/刷新面板生效"
+    ]
+  }
+}

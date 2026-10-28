@@ -1,7 +1,7 @@
 {
   "repo": "luanyujia-DSH",
-  "generatedAt": "2026-10-22",
-  "count": 2,
+  "generatedAt": "2026-10-28",
+  "count": 9,
   "items": [
     {
       "id": "boot-anim",
@@ -15,6 +15,7 @@
         "dsh": ">=0.2.1-rc.2",
         "shell": "需要外壳支持启动动画契约：启动读 外壳\\data\\boot-animation.json 的 id；预览轮询 外壳\\data\\boot-preview.json。外壳没实现时插件不报错，只显示「经典」兜底项。"
       },
+      "meta": null,
       "install": "把 src/ 整个复制到 引擎\\插件\\boot-anim\\；在 引擎\\.dsh\\profiles\\web\\cordis.patch.yml 加 - id: boot-anim-host / name: dsh-plugin-boot-anim；重启引擎 → 设置 → 启动动画。外壳目录默认从 DSH_HOME 反推，不在默认结构就设 DSH_SHELL_DIR。",
       "preview": {
         "type": "jpg",
@@ -22,7 +23,333 @@
       },
       "updatedAt": "2026-10-22",
       "path": "插件/boot-anim",
-      "bytes": 95093
+      "bytes": 95502
+    },
+    {
+      "id": "layout-cards",
+      "title": "预览 + 文件 + 卡片 + AI",
+      "category": "场景",
+      "version": "0.1.0",
+      "summary": "左上大预览、右上文件、左下卡片列表（项目 / 网址 / 收藏都能塞）、右下 AI。内容型场景通用。",
+      "author": "淋雨家",
+      "license": "MIT",
+      "compat": {
+        "dsh": ">=0.2.1-rc.2",
+        "shell": "需要外壳注册对应 panel type；`reserved` / `harness` / `view` / `file` / `flow` / `wb-cards` 是通用类型。",
+        "os": "any"
+      },
+      "meta": {
+        "scenes": [
+          {
+            "file": "src/layout-cards.json",
+            "panels": 4,
+            "renderers": [
+              "view",
+              "file",
+              "wb-cards",
+              "harness"
+            ]
+          }
+        ],
+        "requires": [
+          "renderer:view",
+          "renderer:file",
+          "renderer:wb-cards",
+          "renderer:harness"
+        ],
+        "changes": [
+          "面板 id 别改（对应分区数据）",
+          "AI 面板要自己选一次会话（sessionId 已剔除）",
+          "复制到 外壳\\scenarios\\ 后重启/刷新面板生效"
+        ]
+      },
+      "install": "把 `src/<slug>.json` 复制到 `外壳\\scenarios\\`，重启工作台（或点顶栏 ⟳）；面板里的 AI 会话要自己选一次。",
+      "preview": {
+        "type": "jpg",
+        "file": "poster.jpg"
+      },
+      "updatedAt": "2026-10-28",
+      "path": "场景/layout-cards",
+      "bytes": 59956
+    },
+    {
+      "id": "layout-dev-quad",
+      "title": "四宫格开发台",
+      "category": "场景",
+      "version": "0.1.0",
+      "summary": "左上代码预览、右上一列文件树、左下留一个自定义位、右下 AI。程序开发 / 改脚本时最顺的摆法。",
+      "author": "淋雨家",
+      "license": "MIT",
+      "compat": {
+        "dsh": ">=0.2.1-rc.2",
+        "shell": "需要外壳注册对应 panel type；`reserved` / `harness` / `view` / `file` / `flow` / `wb-cards` 是通用类型。",
+        "os": "any"
+      },
+      "meta": {
+        "scenes": [
+          {
+            "file": "src/layout-dev-quad.json",
+            "panels": 4,
+            "renderers": [
+              "view",
+              "file",
+              "reserved",
+              "harness"
+            ]
+          }
+        ],
+        "requires": [
+          "renderer:view",
+          "renderer:file",
+          "renderer:reserved",
+          "renderer:harness"
+        ],
+        "changes": [
+          "面板 id 别改（对应分区数据）",
+          "AI 面板要自己选一次会话（sessionId 已剔除）",
+          "复制到 外壳\\scenarios\\ 后重启/刷新面板生效"
+        ]
+      },
+      "install": "把 `src/<slug>.json` 复制到 `外壳\\scenarios\\`，重启工作台（或点顶栏 ⟳）；面板里的 AI 会话要自己选一次。",
+      "preview": {
+        "type": "jpg",
+        "file": "poster.jpg"
+      },
+      "updatedAt": "2026-10-28",
+      "path": "场景/layout-dev-quad",
+      "bytes": 61919
+    },
+    {
+      "id": "layout-disk-checkup",
+      "title": "磁盘体检台（Windows）",
+      "category": "场景",
+      "version": "0.1.0",
+      "summary": "左边磁盘分区卡片、右上大户排行、右下清理台账，中间 AI。装在工作台里，磁盘满了不用另开工具。",
+      "author": "淋雨家",
+      "license": "MIT",
+      "compat": {
+        "dsh": ">=0.2.1-rc.2",
+        "shell": "需要外壳注册对应 panel type；`reserved` / `harness` / `view` / `file` / `flow` / `wb-cards` 是通用类型。",
+        "os": "Windows"
+      },
+      "meta": {
+        "scenes": [
+          {
+            "file": "src/layout-disk-checkup.json",
+            "panels": 5,
+            "renderers": [
+              "pc-drives",
+              "pc-toplarge",
+              "pc-junk",
+              "pc-ledger",
+              "harness"
+            ]
+          }
+        ],
+        "requires": [
+          "renderer:pc-drives",
+          "renderer:pc-toplarge",
+          "renderer:pc-junk",
+          "renderer:pc-ledger",
+          "renderer:harness",
+          "os:windows"
+        ],
+        "changes": [
+          "面板 id 别改（对应分区数据）",
+          "AI 面板要自己选一次会话（sessionId 已剔除）",
+          "复制到 外壳\\scenarios\\ 后重启/刷新面板生效"
+        ]
+      },
+      "install": "把 `src/<slug>.json` 复制到 `外壳\\scenarios\\`，重启工作台（或点顶栏 ⟳）；面板里的 AI 会话要自己选一次。",
+      "preview": {
+        "type": "jpg",
+        "file": "poster.jpg"
+      },
+      "updatedAt": "2026-10-28",
+      "path": "场景/layout-disk-checkup",
+      "bytes": 64625
+    },
+    {
+      "id": "layout-doc",
+      "title": "文档 + 文件 + 保留位 + AI",
+      "category": "场景",
+      "version": "0.1.0",
+      "summary": "左侧宽文档阅读区、右上文件、下方工具位、右下 AI。复盘 / 周报 / 长文阅读最舒服。",
+      "author": "淋雨家",
+      "license": "MIT",
+      "compat": {
+        "dsh": ">=0.2.1-rc.2",
+        "shell": "需要外壳注册对应 panel type；`reserved` / `harness` / `view` / `file` / `flow` / `wb-cards` 是通用类型。",
+        "os": "any"
+      },
+      "meta": {
+        "scenes": [
+          {
+            "file": "src/layout-doc.json",
+            "panels": 4,
+            "renderers": [
+              "view",
+              "file",
+              "reserved",
+              "harness"
+            ]
+          }
+        ],
+        "requires": [
+          "renderer:view",
+          "renderer:file",
+          "renderer:reserved",
+          "renderer:harness"
+        ],
+        "changes": [
+          "面板 id 别改（对应分区数据）",
+          "AI 面板要自己选一次会话（sessionId 已剔除）",
+          "复制到 外壳\\scenarios\\ 后重启/刷新面板生效"
+        ]
+      },
+      "install": "把 `src/<slug>.json` 复制到 `外壳\\scenarios\\`，重启工作台（或点顶栏 ⟳）；面板里的 AI 会话要自己选一次。",
+      "preview": {
+        "type": "jpg",
+        "file": "poster.jpg"
+      },
+      "updatedAt": "2026-10-28",
+      "path": "场景/layout-doc",
+      "bytes": 60551
+    },
+    {
+      "id": "layout-dual-ai",
+      "title": "双 AI 下置",
+      "category": "场景",
+      "version": "0.1.0",
+      "summary": "上面一个大预览 + 一列文件，下面两个 AI 会话并排（比如「做」和「审」两个角色）。写东西 / 校对最顺。",
+      "author": "淋雨家",
+      "license": "MIT",
+      "compat": {
+        "dsh": ">=0.2.1-rc.2",
+        "shell": "需要外壳注册对应 panel type；`reserved` / `harness` / `view` / `file` / `flow` / `wb-cards` 是通用类型。",
+        "os": "any"
+      },
+      "meta": {
+        "scenes": [
+          {
+            "file": "src/layout-dual-ai.json",
+            "panels": 4,
+            "renderers": [
+              "view",
+              "file",
+              "harness"
+            ]
+          }
+        ],
+        "requires": [
+          "renderer:view",
+          "renderer:file",
+          "renderer:harness"
+        ],
+        "changes": [
+          "面板 id 别改（对应分区数据）",
+          "AI 面板要自己选一次会话（sessionId 已剔除）",
+          "复制到 外壳\\scenarios\\ 后重启/刷新面板生效"
+        ]
+      },
+      "install": "把 `src/<slug>.json` 复制到 `外壳\\scenarios\\`，重启工作台（或点顶栏 ⟳）；面板里的 AI 会话要自己选一次。",
+      "preview": {
+        "type": "jpg",
+        "file": "poster.jpg"
+      },
+      "updatedAt": "2026-10-28",
+      "path": "场景/layout-dual-ai",
+      "bytes": 56007
+    },
+    {
+      "id": "layout-flow",
+      "title": "流程图 + 预览 + AI",
+      "category": "场景",
+      "version": "0.1.0",
+      "summary": "左上流程图 / 画布、右上文件、左下预览、右下 AI。做工作流、写方案、排步骤时用。",
+      "author": "淋雨家",
+      "license": "MIT",
+      "compat": {
+        "dsh": ">=0.2.1-rc.2",
+        "shell": "需要外壳注册对应 panel type；`reserved` / `harness` / `view` / `file` / `flow` / `wb-cards` 是通用类型。",
+        "os": "any"
+      },
+      "meta": {
+        "scenes": [
+          {
+            "file": "src/layout-flow.json",
+            "panels": 4,
+            "renderers": [
+              "flow",
+              "file",
+              "view",
+              "harness"
+            ]
+          }
+        ],
+        "requires": [
+          "renderer:flow",
+          "renderer:file",
+          "renderer:view",
+          "renderer:harness"
+        ],
+        "changes": [
+          "面板 id 别改（对应分区数据）",
+          "AI 面板要自己选一次会话（sessionId 已剔除）",
+          "复制到 外壳\\scenarios\\ 后重启/刷新面板生效"
+        ]
+      },
+      "install": "把 `src/<slug>.json` 复制到 `外壳\\scenarios\\`，重启工作台（或点顶栏 ⟳）；面板里的 AI 会话要自己选一次。",
+      "preview": {
+        "type": "jpg",
+        "file": "poster.jpg"
+      },
+      "updatedAt": "2026-10-28",
+      "path": "场景/layout-flow",
+      "bytes": 57964
+    },
+    {
+      "id": "layout-preview-ai",
+      "title": "大预览 + AI",
+      "category": "场景",
+      "version": "0.1.0",
+      "summary": "左边一个大预览窗口（图片 / PDF / 视频都能拖进来），右边一条窄的 AI 对话。最省心的通用工作台：看东西 + 问 AI。",
+      "author": "淋雨家",
+      "license": "MIT",
+      "compat": {
+        "dsh": ">=0.2.1-rc.2",
+        "shell": "需要外壳注册对应 panel type；`reserved` / `harness` / `view` / `file` / `flow` / `wb-cards` 是通用类型。",
+        "os": "any"
+      },
+      "meta": {
+        "scenes": [
+          {
+            "file": "src/layout-preview-ai.json",
+            "panels": 2,
+            "renderers": [
+              "view",
+              "harness"
+            ]
+          }
+        ],
+        "requires": [
+          "renderer:view",
+          "renderer:harness"
+        ],
+        "changes": [
+          "面板 id 别改（对应分区数据）",
+          "AI 面板要自己选一次会话（sessionId 已剔除）",
+          "复制到 外壳\\scenarios\\ 后重启/刷新面板生效"
+        ]
+      },
+      "install": "把 `src/<slug>.json` 复制到 `外壳\\scenarios\\`，重启工作台（或点顶栏 ⟳）；面板里的 AI 会话要自己选一次。",
+      "preview": {
+        "type": "jpg",
+        "file": "poster.jpg"
+      },
+      "updatedAt": "2026-10-28",
+      "path": "场景/layout-preview-ai",
+      "bytes": 45969
     },
     {
       "id": "classic-whale",
@@ -36,6 +363,7 @@
         "dsh": ">=0.2.1-rc.2",
         "os": "any"
       },
+      "meta": null,
       "install": "双击 src/classic.html 直接预览；接进外壳时把动画层放进启动遮罩，进度条宽度交给真实加载进度",
       "preview": {
         "type": "mp4",

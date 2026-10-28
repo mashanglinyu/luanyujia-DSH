@@ -1,0 +1,46 @@
+{
+  "id": "layout_flow",
+  "name": "流程图 + 预览 + AI",
+  "description": "左上流程图 / 画布、右上文件、左下预览、右下 AI。做工作流、写方案、排步骤时用。",
+  "layout": "grid",
+  "theme": "dark",
+  "panels": [
+    {
+      "id": "fw-flow",
+      "title": "流程图",
+      "sub": "画布数据在 json 的 flow 字段",
+      "type": "flow",
+      "col": 1,
+      "row": 1,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "id": "fw-file",
+      "title": "文件",
+      "type": "file",
+      "col": 4,
+      "row": 1,
+      "w": 1,
+      "h": 3
+    },
+    {
+      "id": "fw-view",
+      "title": "预览",
+      "type": "view",
+      "col": 1,
+      "row": 4,
+      "w": 2,
+      "h": 2
+    },
+    {
+      "id": "fw-ai",
+      "title": "AI",
+      "type": "harness",
+      "col": 3,
+      "row": 4,
+      "w": 2,
+      "h": 2
+    }
+  ]
+}
